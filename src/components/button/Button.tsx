@@ -1,29 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Button as DefaultButton } from 'components/ui/button';
+import { cn } from 'lib/utils';
 
 interface ButtonProps {
     children?: React.ReactNode;
-    variant?: 'primary' | 'error';
-    color?: 'black' | 'sand' | 'red' | 'orange';
-    size?: 'xl' | 'lg' | 'md' | 'sm';
-    target?: '_self' | '_blank';
-    loading?: Boolean;
-    fullWidth?: Boolean;
-    loaderColor?: string;
-}
 
-const Box = styled.button<ButtonProps>``;
+    color?: 'black' | 'sand' | 'red' | 'orange';
+    size?: string;
+    className?: string;
+    loading?: boolean;
+    asChild?: boolean;
+    loaderColor?: string;
+    withoutCaption?: boolean;
+}
 
 export const Button = React.memo(
     ({
         children,
         loading,
-        target,
         loaderColor = '#ffffff',
+        className,
+        withoutCaption,
         ...props
-    }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-        <Box {...props} target={target} data-cmp="Button">
-            {loading ? 'loading...' : children}
-        </Box>
+    }: (ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) | any) => (
+        <DefaultButton
+            className={cn('hover:bg-blue-500 h-12', className, loading && 'w-fit')}
+            {...props}
+            data-cmp="Button"
+        >
+            {children}
+        </DefaultButton>
     ),
 );

@@ -9,7 +9,6 @@ import browserPlugin from 'router5-plugin-browser';
 import loggerPlugin from 'router5-plugin-logger';
 import { isEmpty } from 'lodash';
 import routes from './routers/routes.json';
-import authenticationMiddleware from './routers/middlewares/authenticationMiddleware';
 
 const store = configureStore({
     reducer: reducers,
@@ -33,7 +32,6 @@ if (import.meta.env.ENABLE_ROUTER_LOGS === 'true') {
     router.usePlugin(loggerPlugin);
 }
 
-router.useMiddleware(authenticationMiddleware);
 router.setDependency('store', store);
 
 if (!isEmpty(import.meta.env.ROUTER_ROOT)) {

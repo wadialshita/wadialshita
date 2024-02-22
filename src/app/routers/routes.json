@@ -1,9 +1,5 @@
 [
   {
-    "name": "signin",
-    "path": "/signin"
-  },
-  {
     "name": "dashboard",
     "path": "/"
   }

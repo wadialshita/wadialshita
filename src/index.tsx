@@ -7,11 +7,13 @@ import App from 'app/App';
 import { store, persistor, router } from 'app/store';
 import { I18nProvider } from './locales';
 import 'theme/theme.scss';
-
+import '@radix-ui/themes/styles.css';
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
+    <>
         <Provider store={store}>
-            <PersistGate persistor={persistor}>
+            <PersistGate persistor={persistor} loading={null}>
                 <RouterProvider router={router}>
                     <I18nProvider>
                         <App />
@@ -19,5 +21,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
                 </RouterProvider>
             </PersistGate>
         </Provider>
-    </React.StrictMode>,
+    </>,
 );
