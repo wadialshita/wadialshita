@@ -13,9 +13,7 @@ import routes from './routers/routes.json';
 const store = configureStore({
     reducer: reducers,
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({ serializableCheck: false })
-            .concat(logger)
-            .concat(apiSlice.middleware),
+        getDefaultMiddleware({ serializableCheck: false }).concat(apiSlice.middleware),
 });
 
 const persistor = persistStore(store);
