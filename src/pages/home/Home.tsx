@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Compyala, Contract, Header, Istelam } from 'pages';
 import { MainForm } from 'pages/mainForm/MainForm';
 import { useForm } from 'react-hook-form';
 import { Button } from 'components';
+import { tafqeet } from 'helpers/Tafqeet';
 
 const defaultValues = {
     madean_name: '',
@@ -25,6 +26,23 @@ const defaultValues = {
     kafeel_3_phone: '',
     kafeel_3_location: '',
     kafeel_3_work: '',
+    car_price: 0,
+    dwonpayment: 0,
+    finance_charges: {
+        label: '15%',
+        value: 0.15,
+    },
+    number_of_monthes: 0,
+    discount: 0,
+    monthly_payment: 0,
+    total_amount: 0,
+    total_amount_text: '',
+    bill_exchange: 1000,
+    bill_exchange_text: '',
+    store: {
+        label: 'عليان موتورز',
+        value: 'عليان موتورز',
+    },
 };
 export const Home = () => {
     const [isContract, setIsContract] = useState(false);
@@ -35,13 +53,38 @@ export const Home = () => {
         console.log('data', data);
         setIsContract(true);
     };
+    const values = form.watch();
+    useEffect(() => {
+        const tmweel = values.car_price - values.dwonpayment;
+        const charges = (tmweel * values.number_of_monthes * values.finance_charges?.value) / 12;
+        const monthly_payment =
+            Number((Number(charges) + Number(tmweel)) / Number(values.number_of_monthes)) +
+            Number(values.discount);
+        form.setValue('monthly_payment', Math.ceil(monthly_payment));
+        form.setValue('total_amount', Math.ceil(monthly_payment) * values.number_of_monthes);
+        form.setValue(
+            'total_amount_text',
+            `${tafqeet(
+                Math.ceil(monthly_payment) * values.number_of_monthes || values.total_amount,
+            )} دينار اردني`,
+        );
+        form.setValue('bill_exchange_text', `${tafqeet(Number(values.bill_exchange))} دينار اردني`);
+    }, [
+        values.car_price,
+        values.dwonpayment,
+        values.finance_charges,
+        values.number_of_monthes,
+        values.discount,
+        values.bill_exchange,
+    ]);
     const printDiv = (divId: string) => {
-        var divContents = document.getElementById(divId)?.innerHTML;
-        var a = window.open('', '', 'height=500, width=500') as any;
-        a.document.write('<html>');
-        a.document.write('<body > ');
-        a.document.write(divContents);
-        a.document.write('</body></html>');
+        var a = window.open('', '', 'height=1000, width=800') as any;
+
+        var printContents = document.getElementById(divId)?.innerHTML;
+        console.log('printContents', printContents);
+        a.document.write(
+            `<html lang='ar' dir='rtl'><head> <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous' /></head><body>${printContents}</body></html>`,
+        );
         a.document.close();
         a.print();
     };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, InputController } from 'components';
 import { Form } from 'components/ui';
 import {
@@ -17,12 +17,48 @@ import {
     TableRow,
 } from 'components/ui/table';
 import { DateInputController } from 'components/dateInputController';
+import { DropdownMenuController } from 'components/dropDownMenuController';
 export const MainForm = ({ form, Submit, defaultValues }: any) => {
     const values = form.getValues();
 
     return (
         <Form {...form}>
-            <Accordion type="single" collapsible className="flex w-full flex-col gap-3">
+            <DropdownMenuController
+                control={form.control}
+                name="store"
+                options={[
+                    {
+                        label: 'عليان موتورز',
+                        value: 'عليان موتورز',
+                    },
+                    {
+                        label: 'الوطني',
+                        value: 'الوطني',
+                    },
+                    {
+                        label: 'توفيق البعاوي',
+                        value: 'توفيق البعاوي',
+                    },
+                    {
+                        label: 'برونز',
+                        value: ' برونز',
+                    },
+                ]}
+                label="المعرض"
+                required
+                rules={{
+                    required: 'هذا الحقل مطلوب',
+                }}
+                className="space-y-0 my-3"
+                labelClassNameContanier="mt-0 "
+                labelClassName="	text-base	font-medium		"
+            />
+            <Accordion
+                type="single"
+                collapsible
+                className="flex w-full flex-col gap-3"
+                defaultValue="person"
+            >
                 <AccordionItem value="person">
                     <AccordionTrigger className="w-full bg-gray-400 text-center flex  h-10 justify-between items-center p-3">
                         <span className="text-center text-xl">معلومات الاشخاص</span>
@@ -384,44 +420,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                             <div className="flex w-full gap-4">
                                 <InputController
                                     control={form.control}
-                                    name="monthly_payment"
-                                    placeholder="قمية القسط"
-                                    type="number"
-                                    containerClassName="w-full"
-                                    label="قيمة القسط"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
-                                />
-                                <InputController
-                                    control={form.control}
-                                    name="number_of_monthes"
-                                    placeholder="عدد الاقساط"
-                                    type="number"
-                                    containerClassName="w-full"
-                                    label="عدد الاقساط"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
-                                />
-                                <InputController
-                                    control={form.control}
-                                    name="discount"
-                                    placeholder="قيمة الخصم"
-                                    type="number"
-                                    containerClassName="w-full"
-                                    label=" قيمة الخصم"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
-                                />
-                            </div>
-                            <div className="flex w-full gap-4">
-                                <InputController
-                                    control={form.control}
                                     name="car_price"
                                     placeholder="سعر المركبة"
                                     type="number"
@@ -432,6 +430,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                         required: 'هذا الحقل مطلوب',
                                     }}
                                 />
+
                                 <InputController
                                     control={form.control}
                                     name="dwonpayment"
@@ -444,6 +443,76 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                         required: 'هذا الحقل مطلوب',
                                     }}
                                 />
+                            </div>
+                            <div className="w-full flex   gap-2">
+                                <DropdownMenuController
+                                    control={form.control}
+                                    name="finance_charges"
+                                    options={[
+                                        {
+                                            label: '13%',
+                                            value: 0.13,
+                                        },
+                                        {
+                                            label: '15%',
+                                            value: 0.15,
+                                        },
+                                        {
+                                            label: '17%',
+                                            value: 0.17,
+                                        },
+                                    ]}
+                                    label="نسبة المرابحه"
+                                    required
+                                    rules={{
+                                        required: 'هذا الحقل مطلوب',
+                                    }}
+                                    className="space-y-0"
+                                    labelClassNameContanier="mt-0 "
+                                    labelClassName="	text-base	font-medium		"
+                                />
+                                <InputController
+                                    control={form.control}
+                                    name="number_of_monthes"
+                                    placeholder="عدد الاقساط"
+                                    type="number"
+                                    containerClassName="w-full"
+                                    label="عدد الاقساط"
+                                    required
+                                    rules={{
+                                        required: 'هذا الحقل مطلوب',
+                                    }}
+                                    max={48}
+                                    maxLength={48}
+                                />
+                            </div>
+                            <div className="flex w-full gap-4">
+                                <InputController
+                                    control={form.control}
+                                    name="discount"
+                                    placeholder="قيمة الخصم"
+                                    type="number"
+                                    containerClassName="w-full"
+                                    label=" قيمة الخصم"
+                                    required
+                                    rules={{
+                                        required: 'هذا الحقل مطلوب',
+                                    }}
+                                />
+                                <InputController
+                                    control={form.control}
+                                    name="monthly_payment"
+                                    placeholder="قمية القسط"
+                                    type="number"
+                                    containerClassName="w-full"
+                                    label="قيمة القسط"
+                                    required
+                                    rules={{
+                                        required: 'هذا الحقل مطلوب',
+                                    }}
+                                />
+                            </div>
+                            <div className="flex w-full gap-4">
                                 <InputController
                                     control={form.control}
                                     name="total_amount"
@@ -713,10 +782,10 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                     </AccordionItem>
                 ) : null}
 
-                <div className="flex justify-center gap-56 mt-9 ">
+                <div className="flex justify-between  mt-9  self-center gap-3 sm:w-full md:w-1/2  ">
                     <Button
                         type="submit"
-                        className="h-9 px-7 py-3.5 capitalize flex align-middle justify-center items-center"
+                        className="w-full h-9 px-7 py-3.5 capitalize flex align-middle justify-center items-center"
                         onClick={form.handleSubmit(Submit)}
                         variant="secondary"
                         disabled={Object.keys(form.formState.errors).length > 0}
@@ -725,7 +794,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                     </Button>
                     <Button
                         type="button"
-                        className=" h-9 px-7 py-3.5 capitalize flex align-middle justify-center items-center bg-red-400 hover:bg-red-600"
+                        className="w-full h-9 px-7 py-3.5 capitalize flex align-middle justify-center items-center bg-red-400 hover:bg-red-600"
                         onClick={() => form.reset({ ...defaultValues })}
                     >
                         <span className="text-[#4D5673]">تفريغ الحقول</span>

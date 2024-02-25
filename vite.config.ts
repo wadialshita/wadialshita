@@ -15,8 +15,11 @@ export default defineConfig({
         }),
         tsconfigPaths(),
     ],
-    root: './src',
+    root: '.',
     server: {
         host: true,
+    },
+    optimizeDeps: {
+        exclude: ['js-big-decimal'],
     },
 });

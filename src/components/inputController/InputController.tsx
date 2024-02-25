@@ -33,6 +33,8 @@ interface InputControllerProps {
     readOnly?: boolean;
     allowCopy?: boolean;
     hint?: any;
+    max?: number;
+    maxLength?: number;
 }
 export const InputController = ({
     control,
@@ -58,6 +60,8 @@ export const InputController = ({
     readOnly,
     hint,
     allowCopy,
+    max,
+    maxLength,
 }: InputControllerProps) => {
     return (
         <div className={containerClassName}>
@@ -103,6 +107,8 @@ export const InputController = ({
                                         readOnly,
                                         hint,
                                         allowCopy,
+                                        max,
+                                        maxLength,
                                     }}
                                 />
                             </FormControl>
