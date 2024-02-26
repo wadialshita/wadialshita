@@ -3,21 +3,14 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "engines": {
-        "npm": "10.x",
-        "node": "20.x"
-    },
     "scripts": {
+        "dev": "vite",
+        "start": "vite   --open",
+        "build": "tsc && vite build",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "format": "prettier --write src/**/*.ts{,x}",
-        "prettier": "prettier . --ignore-path .gitignore",
-        "dev": "react-scripts start",
-        "start": "serve -s build",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject",
-        "heroku-postbuild": "npm run build"
+        "prettier": "prettier . --ignore-path .gitignore"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.4",
@@ -60,7 +53,6 @@
         "router5-plugin-browser": "^8.0.1",
         "router5-plugin-logger": "^8.0.1",
         "sass": "^1.62.1",
-        "serve": "^14.2.1",
         "styled-components": "^5.3.11",
         "tailwind-merge": "^2.2.1",
         "tailwindcss-animate": "^1.0.7",
