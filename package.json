@@ -4,13 +4,14 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "start": "vite   --open",
-        "build": "tsc && vite build",
         "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "format": "prettier --write src/**/*.ts{,x}",
-        "prettier": "prettier . --ignore-path .gitignore"
+        "prettier": "prettier . --ignore-path .gitignore",
+        "dev": "react-scripts start",
+        "start": "serve -s build",
+        "build": "react-scripts build",
+        "heroku-postbuild": "npm run build"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.3.4",
