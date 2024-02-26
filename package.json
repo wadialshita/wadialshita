@@ -11,6 +11,8 @@
         "dev": "react-scripts start",
         "start": "serve -s build",
         "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
         "heroku-postbuild": "npm run build"
     },
     "dependencies": {
@@ -54,6 +56,7 @@
         "router5-plugin-browser": "^8.0.1",
         "router5-plugin-logger": "^8.0.1",
         "sass": "^1.62.1",
+        "serve": "^14.2.1",
         "styled-components": "^5.3.11",
         "tailwind-merge": "^2.2.1",
         "tailwindcss-animate": "^1.0.7",
