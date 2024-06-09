@@ -33,7 +33,7 @@ const defaultValues = {
         value: 0.15,
     },
     number_of_monthes: 0,
-    discount: 0,
+    discount: 20,
     monthly_payment: 0,
     total_amount: 0,
     total_amount_text: '',
@@ -55,11 +55,11 @@ export const Home = () => {
     };
     const values = form.watch();
     useEffect(() => {
-        const tmweel = values.car_price - values.dwonpayment;
-        const charges = (tmweel * values.number_of_monthes * values.finance_charges?.value) / 12;
+        const tmweel = values?.car_price - values?.dwonpayment;
+        const charges = (tmweel * values?.number_of_monthes * values?.finance_charges?.value) / 12;
         const monthly_payment =
-            Number((Number(charges) + Number(tmweel)) / Number(values.number_of_monthes)) +
-            Number(values.discount);
+            Number((Number(charges) + Number(tmweel)) / Number(values?.number_of_monthes)) +
+            Number(values?.discount);
         form.setValue('monthly_payment', Math.ceil(monthly_payment));
         form.setValue('total_amount', Math.ceil(monthly_payment) * values.number_of_monthes);
         form.setValue(

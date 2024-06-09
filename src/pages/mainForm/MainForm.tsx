@@ -54,10 +54,10 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                 labelClassName="	text-base	font-medium		"
             />
             <Accordion
-                type="single"
-                collapsible
+                type="multiple"
+                // collapsible
                 className="flex w-full flex-col gap-3"
-                defaultValue="person"
+                defaultValue={['person', 'car', 'finance', 'maerifin', 'ist3lam']}
             >
                 <AccordionItem value="person">
                     <AccordionTrigger className="w-full bg-gray-400 text-center flex  h-10 justify-between items-center p-3">
@@ -372,13 +372,9 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     control={form.control}
                                     name="car_number"
                                     placeholder=" رقم المركبة"
-                                    type="number"
+                                    type="text"
                                     containerClassName="w-full"
                                     label=" رقم المركبة"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                             </div>
 
@@ -551,6 +547,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                         required: 'هذا الحقل مطلوب',
                                     }}
                                 />
+
                                 <InputController
                                     control={form.control}
                                     name="bill_exchange_text"
@@ -575,7 +572,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                         required: 'هذا الحقل مطلوب',
                                     }}
                                 />
-                                <DateInputController
+                                {/* <DateInputController
                                     control={form.control}
                                     name="bill_exchange_text_date"
                                     containerClassName="w-full"
@@ -584,7 +581,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     rules={{
                                         required: 'هذا الحقل مطلوب',
                                     }}
-                                />
+                                /> */}
                             </div>
                         </div>
                     </AccordionContent>
@@ -698,89 +695,79 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                         </div>
                     </AccordionContent>
                 </AccordionItem>
-                {form.formState.isSubmitted ? (
-                    <AccordionItem value="ist3lam">
-                        <AccordionTrigger className="w-full bg-gray-400 text-center flex  h-10 justify-between items-center p-3">
-                            <span className="text-center text-xl">نموذج الاستعلام</span>
-                        </AccordionTrigger>
-                        <AccordionContent className="mt-2">
-                            <Table className="w-full text-center border border-collapse">
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead className="text-center"></TableHead>
+                <AccordionItem value="ist3lam">
+                    <AccordionTrigger className="w-full bg-gray-400 text-center flex  h-10 justify-between items-center p-3">
+                        <span className="text-center text-xl">نموذج الاستعلام</span>
+                    </AccordionTrigger>
+                    <AccordionContent className="mt-2">
+                        <Table className="w-full text-center border border-collapse">
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="text-center"></TableHead>
 
-                                        <TableHead className="text-center">الاسم</TableHead>
-                                        <TableHead className="text-center">الرقم الوطني</TableHead>
-                                        <TableHead className="text-center">المهنة</TableHead>
-                                        <TableHead className="text-center">مكان السكن</TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    <TableRow className="text-center">
-                                        <TableCell>مدين</TableCell>
-                                        <TableCell>{values?.madean_name || ' - '}</TableCell>
-                                        <TableCell>
-                                            {values?.madean_national_number || ' - '}
-                                        </TableCell>
-                                        <TableCell>{values?.madean_work || ' - '}</TableCell>
-                                        <TableCell>{values?.madean_location || ' - '}</TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>كفيل 1</TableCell>
-                                        <TableCell>{values?.kafeel_1_name || ' - '}</TableCell>
-                                        <TableCell>
-                                            {values?.kafeel_1_national_number || ' - '}
-                                        </TableCell>
-                                        <TableCell>{values?.kafeel_1_work || ' - '}</TableCell>
-                                        <TableCell>{values?.kafeel_1_location || ' - '}</TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>كفيل 2</TableCell>
-                                        <TableCell>{values?.kafeel_2_name || ' - '}</TableCell>
-                                        <TableCell>
-                                            {values?.kafeel_2_national_number || ' - '}
-                                        </TableCell>
-                                        <TableCell>{values?.kafeel_2_work || ' - '}</TableCell>
-                                        <TableCell>{values?.kafeel_2_location || ' - '}</TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>كفيل 2</TableCell>
-                                        <TableCell>{values?.kafeel_3_name || ' - '}</TableCell>
-                                        <TableCell>
-                                            {values?.kafeel_3_national_number || ' - '}
-                                        </TableCell>
-                                        <TableCell>{values?.kafeel_3_work || ' - '}</TableCell>
-                                        <TableCell>{values?.kafeel_3_location || ' - '}</TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>سعر المركبة</TableCell>
-                                        <TableCell colSpan={3}>
-                                            {values?.car_price || ' - '}
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>الدفعه الاولى </TableCell>
-                                        <TableCell colSpan={3}>
-                                            {values?.dwonpayment || ' - '}
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>فحص المركبة </TableCell>
-                                        <TableCell colSpan={3}>
-                                            {values?.car_status || ' - '}
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow className="text-center">
-                                        <TableCell>التاجر </TableCell>
-                                        <TableCell colSpan={3}>
-                                            {values?.tajer_name || ' - '}
-                                        </TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </AccordionContent>
-                    </AccordionItem>
-                ) : null}
+                                    <TableHead className="text-center">الاسم</TableHead>
+                                    <TableHead className="text-center">الرقم الوطني</TableHead>
+                                    <TableHead className="text-center">المهنة</TableHead>
+                                    <TableHead className="text-center">مكان السكن</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                <TableRow className="text-center">
+                                    <TableCell>مدين</TableCell>
+                                    <TableCell>{values?.madean_name || ' - '}</TableCell>
+                                    <TableCell>{values?.madean_national_number || ' - '}</TableCell>
+                                    <TableCell>{values?.madean_work || ' - '}</TableCell>
+                                    <TableCell>{values?.madean_location || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>كفيل 1</TableCell>
+                                    <TableCell>{values?.kafeel_1_name || ' - '}</TableCell>
+                                    <TableCell>
+                                        {values?.kafeel_1_national_number || ' - '}
+                                    </TableCell>
+                                    <TableCell>{values?.kafeel_1_work || ' - '}</TableCell>
+                                    <TableCell>{values?.kafeel_1_location || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>كفيل 2</TableCell>
+                                    <TableCell>{values?.kafeel_2_name || ' - '}</TableCell>
+                                    <TableCell>
+                                        {values?.kafeel_2_national_number || ' - '}
+                                    </TableCell>
+                                    <TableCell>{values?.kafeel_2_work || ' - '}</TableCell>
+                                    <TableCell>{values?.kafeel_2_location || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>كفيل 2</TableCell>
+                                    <TableCell>{values?.kafeel_3_name || ' - '}</TableCell>
+                                    <TableCell>
+                                        {values?.kafeel_3_national_number || ' - '}
+                                    </TableCell>
+                                    <TableCell>{values?.kafeel_3_work || ' - '}</TableCell>
+                                    <TableCell>{values?.kafeel_3_location || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>سعر المركبة</TableCell>
+                                    <TableCell colSpan={3}>{values?.car_price || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>الدفعه الاولى </TableCell>
+                                    <TableCell colSpan={3}>
+                                        {values?.dwonpayment || ' - '}
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>فحص المركبة </TableCell>
+                                    <TableCell colSpan={3}>{values?.car_status || ' - '}</TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>التاجر </TableCell>
+                                    <TableCell colSpan={3}>{values?.tajer_name || ' - '}</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </AccordionContent>
+                </AccordionItem>
 
                 <div className="flex justify-between  mt-9  self-center gap-3 sm:w-full md:w-1/2  ">
                     <Button

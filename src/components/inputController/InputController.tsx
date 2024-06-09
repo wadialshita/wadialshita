@@ -35,6 +35,7 @@ interface InputControllerProps {
     hint?: any;
     max?: number;
     maxLength?: number;
+    pattern?: string;
 }
 export const InputController = ({
     control,
@@ -62,6 +63,7 @@ export const InputController = ({
     allowCopy,
     max,
     maxLength,
+    pattern,
 }: InputControllerProps) => {
     return (
         <div className={containerClassName}>
@@ -109,6 +111,7 @@ export const InputController = ({
                                         allowCopy,
                                         max,
                                         maxLength,
+                                        pattern,
                                     }}
                                 />
                             </FormControl>
