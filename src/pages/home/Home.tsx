@@ -81,7 +81,6 @@ export const Home = () => {
         var a = window.open('', '', 'height=1000, width=800') as any;
 
         var printContents = document.getElementById(divId)?.innerHTML;
-        console.log('printContents', printContents);
         a.document.write(
             `<html lang='ar' dir='rtl'><head> <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous' /></head><body>${printContents}</body></html>`,
         );

@@ -14,6 +14,7 @@ export const Main = styled.main`
     max-height: 100dvh;
 
     background-color: #fcfcfc;
+    page-break-after: auto;
 `;
 
 export const Body = styled.div`
@@ -25,6 +26,7 @@ export const Body = styled.div`
     width: 100%;
     height: 100%;
     background-color: #f7f7f7;
+    page-break-after: auto;
 `;
 
 export const Content = styled('div')`
@@ -36,4 +38,5 @@ export const Content = styled('div')`
     overflow: auto;
     overflow-x: hidden !important;
     padding: 32px;
+    page-break-after: auto;
 `;

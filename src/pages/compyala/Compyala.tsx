@@ -5,7 +5,7 @@ export const Compyala = ({ form }: any) => {
     const values = form.getValues();
     const today = moment().format('YYYY-MM-DD');
     return (
-        <div role="main" className="form-all mb-2" id="Compyala">
+        <div role="main" className="form-all mb-2" id="Compyala" style={{ pageBreakAfter: 'auto' }}>
             <table
                 className="text-dark"
                 cellSpacing={0}
