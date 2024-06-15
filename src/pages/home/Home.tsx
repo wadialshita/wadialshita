@@ -60,23 +60,51 @@ export const Home = () => {
         const monthly_payment =
             Number((Number(charges) + Number(tmweel)) / Number(values?.number_of_monthes)) +
             Number(values?.discount);
+        const total_amount = Math.ceil(monthly_payment) * values.number_of_monthes;
         form.setValue('monthly_payment', Math.ceil(monthly_payment));
-        form.setValue('total_amount', Math.ceil(monthly_payment) * values.number_of_monthes);
+        form.setValue('total_amount', total_amount);
         form.setValue(
             'total_amount_text',
             `${tafqeet(
                 Math.ceil(monthly_payment) * values.number_of_monthes || values.total_amount,
             )} دينار اردني`,
         );
-        form.setValue('bill_exchange_text', `${tafqeet(Number(values.bill_exchange))} دينار اردني`);
+        const bill_exchange = Number(total_amount) * (10 / 100);
+        if (bill_exchange > 1000) {
+            form.setValue('bill_exchange', Math.ceil(bill_exchange));
+            form.setValue(
+                'bill_exchange_text',
+                `${tafqeet(Number(Math.ceil(bill_exchange)))} دينار اردني`,
+            );
+        } else {
+            form.setValue('bill_exchange', 1000);
+            form.setValue('bill_exchange_text', `${tafqeet(Number(1000))} دينار اردني`);
+        }
     }, [
         values.car_price,
         values.dwonpayment,
         values.finance_charges,
         values.number_of_monthes,
         values.discount,
-        values.bill_exchange,
     ]);
+    useEffect(() => {
+        const tmweel = values?.car_price - values?.dwonpayment;
+        const charges = (tmweel * values?.number_of_monthes * values?.finance_charges?.value) / 12;
+
+        form.setValue('monthly_payment', Math.ceil(values?.monthly_payment));
+        form.setValue(
+            'total_amount',
+            Math.ceil(values?.monthly_payment) * values.number_of_monthes,
+        );
+        form.setValue(
+            'total_amount_text',
+            `${tafqeet(
+                Math.ceil(values?.monthly_payment) * values.number_of_monthes ||
+                    values.total_amount,
+            )} دينار اردني`,
+        );
+    }, [values.monthly_payment]);
+
     const printDiv = (divId: string) => {
         var a = window.open('', '', 'height=1000, width=800') as any;
 

@@ -546,6 +546,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     rules={{
                                         required: 'هذا الحقل مطلوب',
                                     }}
+                                    disabled
                                 />
 
                                 <InputController
@@ -556,6 +557,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     containerClassName="w-full"
                                     label="قيمة كمبيالة المحامي كتابة"
                                     required
+                                    disabled
                                     rules={{
                                         required: 'هذا الحقل مطلوب',
                                     }}

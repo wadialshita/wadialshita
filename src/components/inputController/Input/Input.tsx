@@ -20,6 +20,8 @@ interface InputProps {
     filetypes?: string[];
     hint?: any;
     allowCopy?: boolean;
+    min?: number;
+    minLength?: number;
 }
 
 const unacceptableKeys = [38, 40, 69, 107, 109, 189, 187];
@@ -42,10 +44,10 @@ export const Input = ({
     filetypes,
     hint,
     allowCopy,
+    min,
+    minLength,
     ...rest
 }: InputProps) => {
-    const [showPassword, setShowPassword] = useState(false);
-    const [copyed, setCopyed] = useState(false);
     const handelOnKeyDown = (e: any) => {
         if (unacceptableKeys?.includes(e.which)) {
             e.preventDefault();
