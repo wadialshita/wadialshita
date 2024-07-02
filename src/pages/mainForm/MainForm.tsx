@@ -740,7 +740,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     <TableCell>{values?.kafeel_2_location || ' - '}</TableCell>
                                 </TableRow>
                                 <TableRow className="text-center">
-                                    <TableCell>كفيل 3</TableCell>
+                                    <TableCell>كفيل 2</TableCell>
                                     <TableCell>{values?.kafeel_3_name || ' - '}</TableCell>
                                     <TableCell>
                                         {values?.kafeel_3_national_number || ' - '}
@@ -757,10 +757,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     <TableCell colSpan={3}>
                                         {values?.dwonpayment || ' - '}
                                     </TableCell>
-                                </TableRow>
-                                <TableRow className="text-center">
-                                    <TableCell>نوع المركبة </TableCell>
-                                    <TableCell colSpan={3}>{values?.car_type || ' - '}</TableCell>
                                 </TableRow>
                                 <TableRow className="text-center">
                                     <TableCell>فحص المركبة </TableCell>
