@@ -1,9 +1,9 @@
-@import './palette.scss';
-@import './fonts.scss';
+@import "./palette.scss";
+@import "./fonts.scss";
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html,
 body,
@@ -17,7 +17,7 @@ body,
     box-sizing: border-box !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-family: $fontFamily;
+    // font-family: $fontFamily;
 }
 
 html,
@@ -25,18 +25,27 @@ body {
     color: $stylish-black;
 }
 
-[dir] {
-    font-family: $fontFamily;
+// [dir] {
+//     // font-family: $fontFamily;
 
-    body {
-        font-family: $fontFamily;
-    }
-}
+//     body {
+//         font-family: $fontFamily;
+//     }
+// }
 
-[dir='rtl'] {
+[dir="rtl"] {
     font-family: $rtlFontFamily;
 
     body {
         font-family: $rtlFontFamily;
     }
+}
+td {
+    color: black !important;
+}
+tr > td > span {
+    color: black !important;
+}
+span {
+    color: black !important;
 }

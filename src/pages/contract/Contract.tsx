@@ -13,7 +13,7 @@ export const Contract = ({ form }: any) => {
             dir="rtl"
             style={{ pageBreakAfter: 'auto' }}
         >
-            <table className="table-bordered text-dark">
+            <table className="table table-bordered text-black border-black">
                 <tbody>
                     <tr style={{ height: '34px' }}>
                         <td className="s0 text-center fw-bold" colSpan={7}>
