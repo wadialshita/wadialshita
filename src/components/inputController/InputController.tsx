@@ -27,9 +27,9 @@ interface InputControllerProps {
     icon?: any;
     required?: boolean;
     filetypes?: string[];
-    contentClassName?: string;
+    contentclassname?: string;
     formItemClassName?: string;
-    tabindex?: number;
+    tabIndex?: number;
     readOnly?: boolean;
     allowCopy?: boolean;
     hint?: any;
@@ -57,9 +57,9 @@ export const InputController = ({
     required,
     icon,
     filetypes,
-    contentClassName,
+    contentclassname,
     formItemClassName,
-    tabindex = -1,
+    tabIndex = -1,
     readOnly,
     hint,
     allowCopy,
@@ -108,8 +108,8 @@ export const InputController = ({
                                         formState,
                                         icon,
                                         filetypes,
-                                        contentClassName,
-                                        tabindex,
+                                        contentclassname,
+                                        tabIndex,
                                         readOnly,
                                         hint,
                                         allowCopy,

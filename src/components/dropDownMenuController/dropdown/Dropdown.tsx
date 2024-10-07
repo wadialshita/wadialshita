@@ -14,7 +14,7 @@ interface DropdownProps {
     name: string;
     disabled?: boolean;
     dropDownClassName?: string;
-    tabindex?: number;
+    tabIndex?: number;
 }
 export const Dropdown = ({
     field,
@@ -23,7 +23,7 @@ export const Dropdown = ({
     name,
     disabled,
     dropDownClassName,
-    tabindex,
+    tabIndex,
 }: DropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [DropdownMenuContentWidth, setDropdownMenuContentWidth] = useState<any>();
@@ -45,7 +45,7 @@ export const Dropdown = ({
                 id={name}
                 disabled={disabled}
             >
-                <TriggerBox disabled={disabled} className={dropDownClassName} tabindex={tabindex}>
+                <TriggerBox disabled={disabled} className={dropDownClassName}   tabindex={tabIndex}>
                     <span className="m-5 text-base font-normal text-[14px] truncate">
                         {field?.value?.value ? (
                             <span className="text-[14px]">

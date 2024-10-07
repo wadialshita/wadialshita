@@ -31,7 +31,7 @@ interface DropdownMenuControllerProps {
     required?: boolean;
     dropDownClassName?: string;
     labelClassNameContanier?: string;
-    tabindex?: number;
+    tabIndex?: number;
 }
 export const DropdownMenuController = ({
     label,
@@ -49,7 +49,7 @@ export const DropdownMenuController = ({
     required,
     dropDownClassName,
     labelClassNameContanier,
-    tabindex = -1,
+    tabIndex = -1,
 }: DropdownMenuControllerProps) => {
     return (
         <FormField
@@ -83,7 +83,7 @@ export const DropdownMenuController = ({
                                 name,
                                 disabled,
                                 dropDownClassName,
-                                tabindex,
+                                tabIndex,
                             }}
                         />
                     </FormControl>
