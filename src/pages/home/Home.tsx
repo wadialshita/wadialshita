@@ -37,7 +37,7 @@ const defaultValues = {
     monthly_payment: 0,
     total_amount: 0,
     total_amount_text: '',
-    bill_exchange: 1000,
+    bill_exchange: 2000,
     bill_exchange_text: '',
     store: {
         label: 'عليان موتورز',
@@ -70,15 +70,15 @@ export const Home = () => {
             )} دينار اردني`,
         );
         const bill_exchange = Number(total_amount) * (10 / 100);
-        if (bill_exchange > 1000) {
+        if (bill_exchange > 2000) {
             form.setValue('bill_exchange', Math.ceil(bill_exchange));
             form.setValue(
                 'bill_exchange_text',
                 `${tafqeet(Number(Math.ceil(bill_exchange)))} دينار اردني`,
             );
         } else {
-            form.setValue('bill_exchange', 1000);
-            form.setValue('bill_exchange_text', `${tafqeet(Number(1000))} دينار اردني`);
+            form.setValue('bill_exchange', 2000);
+            form.setValue('bill_exchange_text', `${tafqeet(Number(2000))} دينار اردني`);
         }
     }, [
         values.car_price,
