@@ -702,7 +702,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                         <span className="text-center text-xl">نموذج الاستعلام</span>
                     </AccordionTrigger>
                     <AccordionContent className="mt-2">
-                        <Table className="w-full text-center border border-collapse">
+                        <Table className="w-full text-center border border-collapse ">
                             <TableHeader>
                                 <TableRow>
                                     <TableHead className="text-center"></TableHead>
