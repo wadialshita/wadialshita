@@ -1,0 +1,18 @@
+@page {
+    size: A4;
+    /* or 'letter' */
+    margin: 10px !important;
+    /* Control margin of the entire page */
+}
+
+@media print {
+    body {
+        margin: 10px !important;
+        zoom: 95%;
+     }
+}
+
+body {
+    margin: 10px !important;
+ 
+ }

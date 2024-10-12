@@ -107,16 +107,30 @@ export const Home = () => {
 
     const printDiv = (divId: string) => {
         var a = window.open('', '', 'height=1000, width=800') as any;
-
-        var printContents = document.getElementById(divId)?.innerHTML;
+        var element = document.getElementById(divId)as any;
+     
         a.document.write(
-            `<html lang='ar' dir='rtl'><head> <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous' /></head><body>${printContents}</body></html>`,
+            `<html lang='ar' dir='rtl' style="  margin: 0; " >
+            <head> 
+            <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' 
+            rel='stylesheet'
+            integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC'
+            crossorigin='anonymous' /> 
+            <link
+            href="src/pages/home/print.css"
+            rel="stylesheet"
+            crossorigin="anonymous"/>
+            </head>
+            <body id="print">
+             ${element?.innerHTML}
+            </body>
+            </html>`,
         );
         a.document.close();
         a.print();
     };
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col" >
             {isContract ? (
                 <>
                     <Contract {...{ form }} />
