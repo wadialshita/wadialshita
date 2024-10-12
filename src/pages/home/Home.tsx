@@ -117,7 +117,7 @@ export const Home = () => {
             integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC'
             crossorigin='anonymous' /> 
             <link
-            href="src/pages/home/print.css"
+            href="src/pages/home/print.css?v=1.0"
             rel="stylesheet"
             crossorigin="anonymous"/>
             </head>
