@@ -15,46 +15,76 @@ export const Compyala = ({ form }: any) => {
                 <tbody>
                     <tr style={{ height: '25px' }}>
                         <td colSpan={6}>
-                            اسم الــمـديــن: <span id="kom_buyer_name">{values.madean_name}</span>
+                            اسم الــمـديــن:{' '}
+                            <span id="kom_buyer_name">
+                                {values.madean_name ? values.madean_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
-                            ر.وطني: <span id="kom_buyer_id">{values.madean_national_number}</span>
+                            ر.وطني:{' '}
+                            <span id="kom_buyer_id">
+                                {values.madean_national_number
+                                    ? values.madean_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '27px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor1_name">{values.kafeel_1_name}</span>
+                            <span id="kom_sponsor1_name">
+                                {values.kafeel_1_name ? values.kafeel_1_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor1_id">{values.kafeel_1_national_number}</span>
+                            <span id="kom_sponsor1_id">
+                                {values.kafeel_1_national_number
+                                    ? values.kafeel_1_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor2_name">{values.kafeel_2_name}</span>
+                            <span id="kom_sponsor2_name">
+                                {values.kafeel_2_name ? values.kafeel_2_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor2_id">{values.kafeel_2_national_number}</span>
+                            <span id="kom_sponsor2_id">
+                                {values.kafeel_2_national_number
+                                    ? values.kafeel_2_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor3_name">{values.kafeel_3_name}</span>
+                            <span id="kom_sponsor3_name">
+                                {values.kafeel_3_name ? values.kafeel_3_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor3_id">{values.kafeel_3_national_number}</span>
+                            <span id="kom_sponsor3_id">
+                                {values.kafeel_3_national_number
+                                    ? values.kafeel_3_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={4}>
                             تاريخ الاستحقاق:{' '}
-                            <span id="kom_claim_date">{values.first_monthly_payment_date}</span>
+                            <span id="kom_claim_date">
+                                {values.first_monthly_payment_date
+                                    ? values.first_monthly_payment_date
+                                    : ' - '}
+                            </span>
                         </td>
                         <td colSpan={4}>الرقم: 1\2</td>
                         <td colSpan={1} className="text-center">
@@ -82,7 +112,9 @@ export const Compyala = ({ form }: any) => {
                             className="fw-bold text-center"
                             style={{ border: 'solid 3px black' }}
                         >
-                            <span id="kom_price_num">{values.total_amount}</span>
+                            <span id="kom_price_num">
+                                {values.total_amount ? values.total_amount : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
@@ -123,25 +155,25 @@ export const Compyala = ({ form }: any) => {
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_3_name}</span>
+                                <span>{values.kafeel_3_name ? values.kafeel_3_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_2_name}</span>
+                                <span>{values.kafeel_2_name ? values.kafeel_2_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_1_name}</span>
+                                <span>{values.kafeel_1_name ? values.kafeel_1_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 توقيع المدين
-                                <span>{values.madean_name}</span>
+                                <span>{values.madean_name ? values.madean_name : ' - '}</span>
                             </span>
                         </td>
                     </tr>
@@ -157,46 +189,76 @@ export const Compyala = ({ form }: any) => {
                 <tbody>
                     <tr style={{ height: '25px' }}>
                         <td colSpan={6}>
-                            اسم الــمـديــن: <span id="kom_buyer_name">{values.madean_name}</span>
+                            اسم الــمـديــن:{' '}
+                            <span id="kom_buyer_name">
+                                {values.madean_name ? values.madean_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
-                            ر.وطني: <span id="kom_buyer_id">{values.madean_national_number}</span>
+                            ر.وطني:{' '}
+                            <span id="kom_buyer_id">
+                                {values.madean_national_number
+                                    ? values.madean_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '27px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor1_name">{values.kafeel_1_name}</span>
+                            <span id="kom_sponsor1_name">
+                                {values.kafeel_1_name ? values.kafeel_1_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor1_id">{values.kafeel_1_national_number}</span>
+                            <span id="kom_sponsor1_id">
+                                {values.kafeel_1_national_number
+                                    ? values.kafeel_1_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor2_name">{values.kafeel_2_name}</span>
+                            <span id="kom_sponsor2_name">
+                                {values.kafeel_2_name ? values.kafeel_2_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor2_id">{values.kafeel_2_national_number}</span>
+                            <span id="kom_sponsor2_id">
+                                {values.kafeel_2_national_number
+                                    ? values.kafeel_2_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={6}>
                             الــكــفــيــــــــــــل:{' '}
-                            <span id="kom_sponsor3_name">{values.kafeel_3_name}</span>
+                            <span id="kom_sponsor3_name">
+                                {values.kafeel_3_name ? values.kafeel_3_name : ' - '}
+                            </span>
                         </td>
                         <td colSpan={6}>
                             ر.وطني:{' '}
-                            <span id="kom_sponsor3_id">{values.kafeel_3_national_number}</span>
+                            <span id="kom_sponsor3_id">
+                                {values.kafeel_3_national_number
+                                    ? values.kafeel_3_national_number
+                                    : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
                         <td colSpan={4}>
                             تاريخ الاستحقاق:{' '}
-                            <span id="kom_claim_date">{values.first_monthly_payment_date}</span>
+                            <span id="kom_claim_date">
+                                {values.first_monthly_payment_date
+                                    ? values.first_monthly_payment_date
+                                    : ' - '}
+                            </span>
                         </td>
                         <td colSpan={4}>الرقم: 2\2</td>
                         <td colSpan={1} className="text-center">
@@ -224,7 +286,9 @@ export const Compyala = ({ form }: any) => {
                             className="fw-bold text-center"
                             style={{ border: 'solid 3px black' }}
                         >
-                            <span id="kom_price_num">{values.bill_exchange}</span>
+                            <span id="kom_price_num">
+                                {values.bill_exchange ? values.bill_exchange : ' - '}
+                            </span>
                         </td>
                     </tr>
                     <tr style={{ height: '26px' }}>
@@ -237,7 +301,7 @@ export const Compyala = ({ form }: any) => {
                         <td colSpan={1}>المبلغ المرقم اعلاه و قدره</td>
                         <td colSpan={11} style={{ backgroundColor: '#eee' }}>
                             <span id="kom_price_write" className="fw-bold">
-                                {values.bill_exchange_text}
+                                {values.bill_exchange_text ? values.bill_exchange_text : ' - '}
                             </span>
                         </td>
                     </tr>
@@ -265,25 +329,25 @@ export const Compyala = ({ form }: any) => {
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_3_name}</span>
+                                <span>{values.kafeel_3_name ? values.kafeel_3_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_2_name}</span>
+                                <span>{values.kafeel_2_name ? values.kafeel_2_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 كفيل
-                                <span>{values.kafeel_1_name}</span>
+                                <span>{values.kafeel_1_name ? values.kafeel_1_name : ' - '}</span>
                             </span>
                         </td>
                         <td colSpan={3} className="fw-bold text-center w-25 align-baseline">
                             <span className="d-flex flex-column">
                                 توقيع المدين
-                                <span>{values.madean_name}</span>
+                                <span>{values.madean_name ? values.madean_name : ' - '}</span>
                             </span>
                         </td>
                     </tr>

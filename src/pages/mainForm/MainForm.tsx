@@ -277,10 +277,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     type="text"
                                     containerClassName="w-full"
                                     label="اسم الكفيل"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                                 <InputController
                                     control={form.control}
@@ -289,10 +285,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     type="number"
                                     containerClassName="w-full"
                                     label=" الرقم الوطني"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                                 <InputController
                                     control={form.control}
@@ -301,10 +293,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     type="number"
                                     containerClassName="w-full"
                                     label=" رقم الهاتف"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                             </div>
 
@@ -316,10 +304,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     type="text"
                                     containerClassName="w-full"
                                     label=" العنوان"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                                 <InputController
                                     control={form.control}
@@ -328,10 +312,6 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     type="text"
                                     containerClassName="w-full"
                                     label=" العمل"
-                                    required
-                                    rules={{
-                                        required: 'هذا الحقل مطلوب',
-                                    }}
                                 />
                             </div>
                         </div>{' '}
@@ -740,7 +720,7 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     <TableCell>{values?.kafeel_2_location || ' - '}</TableCell>
                                 </TableRow>
                                 <TableRow className="text-center">
-                                    <TableCell>كفيل 2</TableCell>
+                                    <TableCell>كفيل 3</TableCell>
                                     <TableCell>{values?.kafeel_3_name || ' - '}</TableCell>
                                     <TableCell>
                                         {values?.kafeel_3_national_number || ' - '}
@@ -757,6 +737,10 @@ export const MainForm = ({ form, Submit, defaultValues }: any) => {
                                     <TableCell colSpan={3}>
                                         {values?.dwonpayment || ' - '}
                                     </TableCell>
+                                </TableRow>
+                                <TableRow className="text-center">
+                                    <TableCell>نوع المركبة </TableCell>
+                                    <TableCell colSpan={3}>{values?.car_type || ' - '}</TableCell>
                                 </TableRow>
                                 <TableRow className="text-center">
                                     <TableCell>فحص المركبة </TableCell>
