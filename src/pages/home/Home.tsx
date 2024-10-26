@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Compyala, Contract, Header, Istelam } from 'pages';
+import { Compyala, Contract } from 'pages';
 import { MainForm } from 'pages/mainForm/MainForm';
 import { useForm } from 'react-hook-form';
 import { Button } from 'components';
@@ -107,8 +107,8 @@ export const Home = () => {
 
     const printDiv = (divId: string) => {
         var a = window.open('', '', 'height=1000, width=800') as any;
-        var element = document.getElementById(divId)as any;
-     
+        var element = document.getElementById(divId) as any;
+
         a.document.write(
             `<html lang='ar' dir='rtl' style="  margin: 0; " >
             <head> 
@@ -130,7 +130,7 @@ export const Home = () => {
         a.print();
     };
     return (
-        <div className="flex flex-col" >
+        <div className="flex flex-col">
             {isContract ? (
                 <>
                     <Contract {...{ form }} />

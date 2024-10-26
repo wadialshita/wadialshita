@@ -1,4 +1,3 @@
-export { Istelam } from './istelam';
 export { Contract } from './contract';
 export { Compyala } from './compyala';
 export { Header } from './header';
